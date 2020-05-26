@@ -6,7 +6,6 @@ import gg.bayes.challenge.rest.model.HeroKills;
 import gg.bayes.challenge.rest.model.HeroSpells;
 import gg.bayes.challenge.service.MatchService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,28 +34,28 @@ public class MatchController {
 
     @GetMapping("{matchId}")
     public ResponseEntity<List<HeroKills>> getMatch(@PathVariable("matchId") Long matchId) {
-        // TODO use match service to retrieve stats
-        throw new NotImplementedException("should be implemented by the applicant");
+        List<HeroKills> kills = matchService.getKills(matchId);
+        return ResponseEntity.ok(kills);
     }
 
     @GetMapping("{matchId}/{heroName}/items")
     public ResponseEntity<List<HeroItems>> getItems(@PathVariable("matchId") Long matchId,
                                                     @PathVariable("heroName") String heroName) {
-        // TODO use match service to retrieve stats
-        throw new NotImplementedException("should be implemented by the applicant");
+        List<HeroItems> items = matchService.getItems(matchId, heroName);
+        return ResponseEntity.ok(items);
     }
 
     @GetMapping("{matchId}/{heroName}/spells")
     public ResponseEntity<List<HeroSpells>> getSpells(@PathVariable("matchId") Long matchId,
                                                       @PathVariable("heroName") String heroName) {
-        // TODO use match service to retrieve stats
-        throw new NotImplementedException("should be implemented by the applicant");
+        List<HeroSpells> spells = matchService.getSpells(matchId, heroName);
+        return ResponseEntity.ok(spells);
     }
 
     @GetMapping("{matchId}/{heroName}/damage")
     public ResponseEntity<List<HeroDamage>> getDamage(@PathVariable("matchId") Long matchId,
                                                       @PathVariable("heroName") String heroName) {
-        // TODO use match service to retrieve stats
-        throw new NotImplementedException("should be implemented by the applicant");
+        List<HeroDamage> damages = matchService.getDamages(matchId, heroName);
+        return ResponseEntity.ok(damages);
     }
 }

@@ -1,0 +1,39 @@
+DROP TABLE IF EXISTS damages;
+
+CREATE TABLE damages (
+  id UUID PRIMARY KEY,
+  match_id BIGINT NOT NULL,
+  hero VARCHAR(255) NOT NULL,
+  target VARCHAR(255) NOT NULL,
+  damage_instances INT NOT NULL,
+  total_damage INT NOT NULL
+);
+
+DROP TABLE IF EXISTS items;
+
+CREATE TABLE items (
+  id UUID PRIMARY KEY,
+  match_id BIGINT NOT NULL,
+  hero VARCHAR(255) NOT NULL,
+  item VARCHAR(255) NOT NULL,
+  timestamp BIGINT NOT NULL
+);
+
+DROP TABLE IF EXISTS kills;
+
+CREATE TABLE kills (
+  id UUID PRIMARY KEY,
+  match_id BIGINT NOT NULL,
+  hero VARCHAR(255) NOT NULL,
+  kills INT NOT NULL
+);
+
+DROP TABLE IF EXISTS spells;
+
+CREATE TABLE spells (
+  id UUID PRIMARY KEY,
+  match_id BIGINT NOT NULL,
+  hero VARCHAR(255) NOT NULL,
+  spell VARCHAR(255) NOT NULL,
+  casts INT NOT NULL
+);
